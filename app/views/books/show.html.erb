@@ -33,6 +33,7 @@
    <% end %>
   </p>
   <hr class="my-4">
+  <% if user_signed_in? %>
   <%if current_user.check_outs.length == 0%>
       <%= link_to "Reserve Book",@book_reserve,method: :post, class: "btn btn-secondary"%>
     <%else%>
@@ -41,6 +42,7 @@
          <%= link_to "Reserve Book",@book_reserve,method: :post, class: "btn btn-secondary"%>
        <% end %>
      <% end %>
+   <% end %>
    <% end %>  
   <%if current_user && current_user.admin%>
     <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-secondary'%> 
